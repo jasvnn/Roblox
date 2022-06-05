@@ -25,8 +25,8 @@ rMain:Slider("Distance", 0, 4, 50, function(value)
     _G.rDistance = value
 end)
 
-rMain:Keybind("Toggle Autoclicker", "q", function(value)
-    _G.ACActive = value
+rMain:Keybind("Toggle AC", "Q", function()
+    _G.ACActive = not _G.ACActive
 end)
 
 vMain:Toggle("Enabled", false, function(value)
