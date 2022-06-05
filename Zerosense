@@ -1,0 +1,141 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Attrixx/FreeScripts/main/YTUILib1.lua"))():init("Zerosense")
+local Reach = Library:Tab("Reach")
+local Afterlife = Library:Tab("Afterlife")
+local Settings = Library:Tab("Settings")
+local rMain = Reach:Section("Reach Settings")
+local vMain = Reach:Section("Visualiser Settings")
+local aMain = Afterlife:Section("Afterlife Settings")
+local sMain = Settings:Section("UI Settings")
+local Controls = require(game:GetService("Players").LocalPlayer.PlayerScripts.PlayerModule):GetControls()
+
+_G.rDistance = 4
+_G.aDistance = 5
+_G.ReachActive = true
+_G.AfterlifeActive = true
+_G.ACActive = false
+_G.VisActive = false
+_G.VisSpeed = 5
+_G.VisColor = nil
+
+rMain:Toggle("Enabled", true, function(value)
+    _G.ReachActive = value
+end)
+
+rMain:Slider("Distance", 0, 4, 50, function(value)
+    _G.rDistance = value
+end)
+
+rMain:Keybind("Toggle Autoclicker", "q", function(value)
+    _G.ACActive = value
+end)
+
+vMain:Toggle("Enabled", false, function(value)
+    _G.VisActive = value
+end)
+
+vMain:Slider("Rainbow Speed", 0, 5 , 20, function(value)
+    _G.VisSpeed = value
+end)
+
+aMain:Toggle("Enabled", true, function(value)
+    _G.AfterlifeActive = value
+end)
+
+aMain:Slider("Distance", 0, 5, 20, function(value)
+    _G.aDistance = value
+end)
+
+sMain:Keybind("Toggle UI", "Insert", function()
+    game.CoreGui.Zerosense.Main.Visible = not game.CoreGui.Zerosense.Main.Visible
+end)
+
+local hiddenPart = Instance.new("Part")
+hiddenPart.Transparency = 0.3
+hiddenPart.Anchored = true
+hiddenPart.CanCollide = false
+hiddenPart.Size = Vector3.new(0.1,0.1,0.1)
+hiddenPart.Material = Enum.Material.ForceField
+hiddenPart.BottomSurface = Enum.SurfaceType.Smooth
+hiddenPart.TopSurface = Enum.SurfaceType.Smooth
+local visualizerBox = Instance.new("SelectionBox")
+visualizerBox.Adornee = hiddenPart
+visualizerBox.Parent = nil
+
+game:GetService("RunService").Stepped:Connect(function()
+    Controls:Enable()
+	Player = game.Players.LocalPlayer
+    if _G.ACActive then
+        pcall(function()
+            Sword = Player.Character:FindFirstChildOfClass("Tool")
+            Sword:Activate()
+        end)
+    end
+    if _G.ReachActive then
+		pcall(function()
+			Sword = Player.Character:FindFirstChildOfClass("Tool")
+			for _,v in pairs(game.Players:GetPlayers()) do
+				if v and v ~= game.Players.LocalPlayer and v.Character.Humanoid.Health ~= 0 then
+					if (Sword.Handle.Position - v.Character.Torso.Position).Magnitude <= _G.rDistance then
+						firetouchinterest(Sword.Handle, v.Character["Torso"], 0)
+						firetouchinterest(Sword.Handle, v.Character["Torso"], 1)
+						firetouchinterest(Sword.Handle, v.Character["Left Arm"], 0)
+						firetouchinterest(Sword.Handle, v.Character["Left Arm"], 1)
+					end
+				end
+			end
+		end)
+	end
+    if _G.AfterlifeActive then
+        pcall(function()
+            Controls:Enable()
+            Sword = Player.Character:FindFirstChildOfClass("Tool")
+            game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Dead,false)
+            if Player.Character.Humanoid.Health <= 0 then
+                Controls:Disable()
+                for _,v in pairs(game.Players:GetPlayers()) do
+                    if v and v ~= game.Players.LocalPlayer then
+                        if (Sword.Handle.Position - v.Character.Torso.Position).Magnitude <= _G.aDistance then
+							firetouchinterest(Sword.Handle, v.Character["Torso"], 0)
+							firetouchinterest(Sword.Handle, v.Character["Torso"], 1)
+							firetouchinterest(Sword.Handle, v.Character["Left Arm"], 0)
+							firetouchinterest(Sword.Handle, v.Character["Left Arm"], 1)
+							firetouchinterest(Sword.Handle, v.Character["Right Arm"], 0)
+							firetouchinterest(Sword.Handle, v.Character["Right Arm"], 1)
+							firetouchinterest(Sword.Handle, v.Character["Right Leg"], 0)
+							firetouchinterest(Sword.Handle, v.Character["Right Leg"], 1)
+							firetouchinterest(Sword.Handle, v.Character["Left Leg"], 0)
+							firetouchinterest(Sword.Handle, v.Character["Left Leg"], 1)
+                        end
+                    end
+                end
+            end
+        end)
+    end
+    if not _G.visualizerEnabled and visualizerBox.Parent ~= nil then
+        visualizerBox.Parent = nil
+    end
+    if _G.VisActive and _G.ReachActive then
+        pcall(function()
+            if Player.Character.Health ~= 0 and not Player.Backpack:FindFirstChildOfClass("Tool") and Player.Character:FindFirstChildOfClass("Tool") then
+                Sword = Player.Character:FindFirstChildOfClass("Tool")
+                visualizerBox.Parent = Player.Character
+                visualizerBox.Color3 = _G.VisColor
+                visualizerBox.SurfaceColor3 = _G.VisColor
+                visualizerBox.Transparency = 0
+                visualizerBox.SurfaceTransparency = 0.8
+
+                hiddenPart.Size = Vector3.new(_G.rDistance*2,0.05,_G.rDistance*2)
+                hiddenPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -2.95, 0)
+            else
+                visualizerBox.Parent = nil
+            end
+        end)
+    end
+end)
+
+while true do
+	for i = 0,1,0.001*_G.VisSpeed do
+		_G.VisColor = Color3.fromHSV(i,1,1) --creates a color using i
+		wait()
+	end
+end
