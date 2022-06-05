@@ -10,19 +10,25 @@ local Controls = require(game:GetService("Players").LocalPlayer.PlayerScripts.Pl
 
 _G.rDistance = 4
 _G.aDistance = 5
-_G.ReachActive = true
-_G.AfterlifeActive = true
+_G.ReachActive = false
+_G.DAmp = false
+_G.AfterlifeActive = false
 _G.ACActive = false
 _G.VisActive = false
 _G.VisSpeed = 5
 _G.VisColor = nil
+DB = true
 
-rMain:Toggle("Enabled", true, function(value)
+rMain:Toggle("Reach Enabled", false, function(value)
     _G.ReachActive = value
 end)
 
 rMain:Slider("Distance", 0, 4, 50, function(value)
     _G.rDistance = value
+end)
+
+rMain:Toggle("Damage Amplificaition", false, function(value)
+    _G.DAmp = value
 end)
 
 rMain:Keybind("Toggle AC", "Q", function()
@@ -61,6 +67,8 @@ local visualizerBox = Instance.new("SelectionBox")
 visualizerBox.Adornee = hiddenPart
 visualizerBox.Parent = nil
 
+
+
 game:GetService("RunService").Stepped:Connect(function()
     Controls:Enable()
 	Player = game.Players.LocalPlayer
@@ -68,6 +76,27 @@ game:GetService("RunService").Stepped:Connect(function()
         pcall(function()
             Sword = Player.Character:FindFirstChildOfClass("Tool")
             Sword:Activate()
+        end)
+    end
+    if _G.DAmp then
+        pcall(function()
+            Sword = Player.Character:FindFirstChildOfClass("Tool")
+            Handle = Sword:FindFirstChild("Handle")
+            Handle.Touched:Connect(function(hit)
+                if DB then
+                    wait()
+                    DB = false
+                    player = game:GetService("Players"):GetPlayerFromCharacter(hit.Parent)
+                    if player then
+                        wait()
+                        firetouchinterest(Handle, hit, 0)
+                        firetouchinterest(Handle, hit, 1)
+                        wait()
+                    wait()
+                    DB = true
+                    end
+                end
+            end)
         end)
     end
     if _G.ReachActive then
