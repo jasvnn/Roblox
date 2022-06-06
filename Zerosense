@@ -43,7 +43,7 @@ vMain:Slider("Rainbow Speed", 0, 5 , 20, function(value)
     _G.VisSpeed = value
 end)
 
-aMain:Toggle("Enabled", true, function(value)
+aMain:Toggle("Enabled", false, function(value)
     _G.AfterlifeActive = value
 end)
 
