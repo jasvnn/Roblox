@@ -8,6 +8,7 @@ local MessageData = {
 MessageData = HS:JSONEncode(MessageData)
 
 HS:PostAsync(WebhookURL,MessageData)
+print("Tried to do smth")
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Attrixx/FreeScripts/main/YTUILib1.lua"))():init("Zerosense")
 local Reach = Library:Tab("Reach")
