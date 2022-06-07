@@ -1,15 +1,6 @@
-local HS = game:GetService("HttpService")
-local WebhookURL = "https://discord.com/api/webhooks/983781153955803166/LjIRuE3jKVU-b6iJP3R0FevbpNAHXL7xjA52n6Nw-CEFL9b6sBld72d7NuVFIEEBPGkw"
+
 local string = game.Players.LocalPlayer.Name .. "has executed the script in "..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-local MessageData = {
-	["content"] = string
-}
-
-MessageData = HS:JSONEncode(MessageData)
-
-HS:PostAsync(WebhookURL,MessageData)
-print("Tried to do smth")
-
+print(string)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Attrixx/FreeScripts/main/YTUILib1.lua"))():init("Zerosense")
 local Reach = Library:Tab("Reach")
 local Afterlife = Library:Tab("Afterlife")
