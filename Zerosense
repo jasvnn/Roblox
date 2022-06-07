@@ -1,6 +1,9 @@
 
-local string = game.Players.LocalPlayer.Name .. "has executed the script in "..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-print(string)
+local url = "https://hooks.zapier.com/hooks/catch/12684278/bamil7o/"
+local data0 = game.Players.LocalPlayer.Name.." has executed zerosense in "..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local newdata0 = game:GetService'HttpService':JSONEncode(data0)
+game:HttpPost(url,newdata0)
+wait(1)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Attrixx/FreeScripts/main/YTUILib1.lua"))():init("Zerosense")
 local Reach = Library:Tab("Reach")
 local Afterlife = Library:Tab("Afterlife")
