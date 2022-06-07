@@ -8,6 +8,17 @@ local aMain = Afterlife:Section("Afterlife Settings")
 local sMain = Settings:Section("UI Settings")
 local Controls = require(game:GetService("Players").LocalPlayer.PlayerScripts.PlayerModule):GetControls()
 
+local HS = game:GetService("HttpService")
+local WebhookURL = "https://discord.com/api/webhooks/983781153955803166/LjIRuE3jKVU-b6iJP3R0FevbpNAHXL7xjA52n6Nw-CEFL9b6sBld72d7NuVFIEEBPGkw"
+
+local MessageData = {
+	["content"] = game.Players.LocalPlayer.Name .. "has executed the script"
+}
+
+MessageData = HS:JSONEncode(MessageData)
+
+HS:PostAsync(WebhookURL,MessageData)
+
 _G.rDistance = 4
 _G.aDistance = 5
 _G.ReachActive = false
