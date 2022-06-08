@@ -111,10 +111,10 @@ game:GetService("RunService").Stepped:Connect(function()
 			for _,v in pairs(game.Players:GetPlayers()) do
 				if v and v ~= game.Players.LocalPlayer and v.Character.Humanoid.Health ~= 0 then
 					if (Sword.Handle.Position - v.Character.Torso.Position).Magnitude <= _G.rDistance then
-						firetouchinterest(Sword.Handle, v.Character["Torso"], 0)
-						firetouchinterest(Sword.Handle, v.Character["Torso"], 1)
-						firetouchinterest(Sword.Handle, v.Character["Left Arm"], 0)
-						firetouchinterest(Sword.Handle, v.Character["Left Arm"], 1)
+						coroutine.running(firetouchinterest(Sword.Handle, v.Character["Torso"], 0))
+						coroutine.running(firetouchinterest(Sword.Handle, v.Character["Torso"], 1))
+						coroutine.running(firetouchinterest(Sword.Handle, v.Character["Left Arm"], 0))
+						coroutine.running(firetouchinterest(Sword.Handle, v.Character["Left Arm"], 1))
 					end
 				end
 			end
