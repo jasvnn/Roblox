@@ -57,7 +57,7 @@ aMain:Slider("Distance", 0, 5, 20, function(value)
     _G.aDistance = value
 end)
 
-sMain:Keybind("Toggle UI", "Insert", function()
+sMain:Keybind("Toggle UI", "Delete", function()
     game.CoreGui.Zerosense.Main.Visible = not game.CoreGui.Zerosense.Main.Visible
 end)
 
