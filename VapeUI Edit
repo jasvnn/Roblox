@@ -142,7 +142,7 @@ function lib:Window(text,version,preset, closebind)
     Version.Position = UDim2.new(0.0339285731, 0, 0.0564263314, 1)
     Version.Size = UDim2.new(0, 200, 0, 23)
     Version.Font = Enum.Font.GothamSemibold
-    Version.Text = text
+    Version.Text = version
     Version.TextColor3 = Color3.fromRGB(68, 68, 68)
     Version.TextSize = 12.000
     Version.TextXAlignment = Enum.TextXAlignment.Left
