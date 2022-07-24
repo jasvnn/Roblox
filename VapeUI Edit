@@ -13,6 +13,7 @@ local CloseBind = Enum.KeyCode.RightControl
 local ui = Instance.new("ScreenGui")
 ui.Name = "N0VX"
 ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+if syn then syn.protect_gui(ui) end
 ui.Parent = game.CoreGui
 
 coroutine.wrap(
@@ -138,7 +139,7 @@ function lib:Window(text,version,preset, closebind)
     Version.Parent = Main
     Version.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Version.BackgroundTransparency = 1.000
-    Version.Position = UDim2.new(0.0339285731, 0, 0.0564263314, )
+    Version.Position = UDim2.new(0.0339285731, 0, 0.0564263314, 1)
     Version.Size = UDim2.new(0, 200, 0, 23)
     Version.Font = Enum.Font.GothamSemibold
     Version.Text = text
