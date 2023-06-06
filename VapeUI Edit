@@ -11,7 +11,7 @@ local PresetColor = Color3.fromRGB(255, 120, 224)
 local CloseBind = Enum.KeyCode.RightControl
 
 local ui = Instance.new("ScreenGui")
-ui.Name = "N0VX"
+ui.Name = "UINAME"
 ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 if syn then syn.protect_gui(ui) end
 ui.Parent = game.CoreGui
