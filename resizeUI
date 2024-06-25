@@ -56,10 +56,10 @@ local grad = Instance.new("UIGradient")
 grad.Parent = UIStroke
 grad.Rotation = -10
 
-local seq1 = NumberSequenceKeypoint.new(0,1)
-local seq2 = NumberSequenceKeypoint.new(0.52,1)
-local seq3 = NumberSequenceKeypoint.new(0.521,0)
-local seq4 = NumberSequenceKeypoint.new(1,0)
+local seq1 = NumberSequenceKeypoint.new(0,1,0)
+local seq2 = NumberSequenceKeypoint.new(0.52,1,0)
+local seq3 = NumberSequenceKeypoint.new(0.522,0,0)
+local seq4 = NumberSequenceKeypoint.new(1,0,0)
 
 grad.Transparency = NumberSequence.new({seq1,seq2,seq3,seq4})
 
@@ -75,14 +75,16 @@ UICorner_2.Parent = BorderC
 
 UIStroke_2.Thickness = 10
 UIStroke_2.Parent = BorderC
+UIStroke_2.Color = Color3.fromRGB(255,255,255)
+
 local grad_2 = Instance.new("UIGradient")
 grad_2.Parent = UIStroke_2
 grad_2.Rotation = -10
 
-local seq11 = NumberSequenceKeypoint.new(0,0)
-local seq22 = NumberSequenceKeypoint.new(0.48,0)
-local seq33 = NumberSequenceKeypoint.new(0.481,1)
-local seq44 = NumberSequenceKeypoint.new(1,1)
+local seq11 = NumberSequenceKeypoint.new(0,0,0)
+local seq22 = NumberSequenceKeypoint.new(0.48,0,0)
+local seq33 = NumberSequenceKeypoint.new(0.481,1,0)
+local seq44 = NumberSequenceKeypoint.new(1,1,0)
 
 
 grad_2.Transparency = NumberSequence.new({seq11,seq22,seq33,seq44})
