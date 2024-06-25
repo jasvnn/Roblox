@@ -1,0 +1,174 @@
+-- Instances:
+
+local UI = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local BorderD = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local BorderC = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local X_M = Instance.new("TextLabel")
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+local Y_M = Instance.new("TextLabel")
+local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
+local Z_M = Instance.new("TextLabel")
+local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
+local X = Instance.new("TextBox")
+local UITextSizeConstraint_4 = Instance.new("UITextSizeConstraint")
+local Y = Instance.new("TextBox")
+local UITextSizeConstraint_5 = Instance.new("UITextSizeConstraint")
+local Z = Instance.new("TextBox")
+local UITextSizeConstraint_6 = Instance.new("UITextSizeConstraint")
+
+--Properties:
+
+UI.Name = "UI"
+UI.Parent = game.CoreGui
+UI.DisplayOrder = 1
+
+Main.Name = "Main"
+Main.Parent = UI
+Main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.00830670912, 0, 0.348699778, 0)
+Main.Size = UDim2.new(0.117571883, 0, 0.302600473, 0)
+
+BorderD.Name = "BorderD"
+BorderD.Parent = Main
+BorderD.Active = true
+BorderD.AnchorPoint = Vector2.new(0.5, 0.5)
+BorderD.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BorderD.BackgroundTransparency = 1.000
+BorderD.Position = UDim2.new(0.5, 0, 0.182031274, 0)
+BorderD.Size = UDim2.new(0.271739125, 0, 0.07421875, 0)
+BorderD.ZIndex = 2
+
+UICorner.CornerRadius = UDim.new(1, 0)
+UICorner.Parent = BorderD
+
+BorderC.Name = "BorderC"
+BorderC.Parent = Main
+BorderC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BorderC.BackgroundTransparency = 1.000
+BorderC.Position = UDim2.new(0.358695656, 0, 0.0804687738, 0)
+BorderC.Size = UDim2.new(0.277173907, 0, 0.06640625, 0)
+
+UICorner_2.CornerRadius = UDim.new(1, 0)
+UICorner_2.Parent = BorderC
+
+X_M.Name = "X_M"
+X_M.Parent = Main
+X_M.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+X_M.BackgroundTransparency = 1.000
+X_M.BorderColor3 = Color3.fromRGB(0, 0, 0)
+X_M.BorderSizePixel = 0
+X_M.Position = UDim2.new(0, 0, 0.38671875, 0)
+X_M.Size = UDim2.new(0.168478265, 0, 0.11328125, 0)
+X_M.Font = Enum.Font.Unknown
+X_M.Text = "X"
+X_M.TextColor3 = Color3.fromRGB(255, 255, 255)
+X_M.TextScaled = true
+X_M.TextSize = 14.000
+X_M.TextWrapped = true
+
+UITextSizeConstraint.Parent = X_M
+UITextSizeConstraint.MaxTextSize = 14
+
+Y_M.Name = "Y_M"
+Y_M.Parent = Main
+Y_M.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Y_M.BackgroundTransparency = 1.000
+Y_M.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Y_M.BorderSizePixel = 0
+Y_M.Position = UDim2.new(0, 0, 0.5234375, 0)
+Y_M.Size = UDim2.new(0.168478265, 0, 0.11328125, 0)
+Y_M.Font = Enum.Font.Unknown
+Y_M.Text = "Y"
+Y_M.TextColor3 = Color3.fromRGB(255, 255, 255)
+Y_M.TextScaled = true
+Y_M.TextSize = 14.000
+Y_M.TextWrapped = true
+
+UITextSizeConstraint_2.Parent = Y_M
+UITextSizeConstraint_2.MaxTextSize = 14
+
+Z_M.Name = "Z_M"
+Z_M.Parent = Main
+Z_M.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Z_M.BackgroundTransparency = 1.000
+Z_M.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Z_M.BorderSizePixel = 0
+Z_M.Position = UDim2.new(0, 0, 0.66015625, 0)
+Z_M.Size = UDim2.new(0.168478265, 0, 0.11328125, 0)
+Z_M.Font = Enum.Font.Unknown
+Z_M.Text = "Z"
+Z_M.TextColor3 = Color3.fromRGB(255, 255, 255)
+Z_M.TextScaled = true
+Z_M.TextSize = 14.000
+Z_M.TextWrapped = true
+
+UITextSizeConstraint_3.Parent = Z_M
+UITextSizeConstraint_3.MaxTextSize = 14
+
+X.Name = "X"
+X.Parent = Main
+X.Active = false
+X.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+X.BackgroundTransparency = 1.000
+X.BorderColor3 = Color3.fromRGB(0, 0, 0)
+X.BorderSizePixel = 0
+X.Position = UDim2.new(0.201086953, 0, 0.38671875, 0)
+X.Selectable = false
+X.Size = UDim2.new(0.798913062, 0, 0.11328125, 0)
+X.Font = Enum.Font.Unknown
+X.PlaceholderText = "4"
+X.Text = "4"
+X.TextColor3 = Color3.fromRGB(255, 255, 255)
+X.TextScaled = true
+X.TextSize = 14.000
+X.TextWrapped = true
+
+UITextSizeConstraint_4.Parent = X
+UITextSizeConstraint_4.MaxTextSize = 14
+
+Y.Name = "Y"
+Y.Parent = Main
+Y.Active = false
+Y.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Y.BackgroundTransparency = 1.000
+Y.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Y.BorderSizePixel = 0
+Y.Position = UDim2.new(0.201086953, 0, 0.5234375, 0)
+Y.Selectable = false
+Y.Size = UDim2.new(0.798913062, 0, 0.11328125, 0)
+Y.Font = Enum.Font.Unknown
+Y.PlaceholderText = "4"
+Y.Text = ""
+Y.TextColor3 = Color3.fromRGB(255, 255, 255)
+Y.TextScaled = true
+Y.TextSize = 14.000
+Y.TextWrapped = true
+
+UITextSizeConstraint_5.Parent = Y
+UITextSizeConstraint_5.MaxTextSize = 14
+
+Z.Name = "Z"
+Z.Parent = Main
+Z.Active = false
+Z.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Z.BackgroundTransparency = 1.000
+Z.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Z.BorderSizePixel = 0
+Z.Position = UDim2.new(0.201086953, 0, 0.66015625, 0)
+Z.Selectable = false
+Z.Size = UDim2.new(0.798913062, 0, 0.11328125, 0)
+Z.Font = Enum.Font.Unknown
+Z.PlaceholderText = "4"
+Z.Text = ""
+Z.TextColor3 = Color3.fromRGB(255, 255, 255)
+Z.TextScaled = true
+Z.TextSize = 14.000
+Z.TextWrapped = true
+
+UITextSizeConstraint_6.Parent = Z
+UITextSizeConstraint_6.MaxTextSize = 14
