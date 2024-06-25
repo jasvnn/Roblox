@@ -4,8 +4,10 @@ local UI = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local BorderD = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
+local UIStroke = Instance.new("UIStroke")
 local BorderC = Instance.new("Frame")
 local UICorner_2 = Instance.new("UICorner")
+local UIStroke_2 = Instance.new("UIStroke")
 local X_M = Instance.new("TextLabel")
 local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
 local Y_M = Instance.new("TextLabel")
@@ -46,6 +48,15 @@ BorderD.ZIndex = 2
 UICorner.CornerRadius = UDim.new(1, 0)
 UICorner.Parent = BorderD
 
+UIStroke.Thickness = 10
+UIStroke.Parent = BorderD
+UIStroke.Color = Color3.fromRGB(74, 168, 255)
+
+local grad = Instance.new("UIGradient")
+grad.Parent = UIStroke
+grad.Rotation = -10
+grad.Transparency = NumberSequence.new(0,1)
+
 BorderC.Name = "BorderC"
 BorderC.Parent = Main
 BorderC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -55,6 +66,13 @@ BorderC.Size = UDim2.new(0.277173907, 0, 0.06640625, 0)
 
 UICorner_2.CornerRadius = UDim.new(1, 0)
 UICorner_2.Parent = BorderC
+
+UIStroke_2.Thickness = 10
+UIStroke_2.Parent = BorderC
+local grad_2 = Instance.new("UIGradient")
+grad_2.Parent = UIStroke_2
+grad_2.Rotation = -10
+grad_2.Transparency = NumberSequence.new(0,1)
 
 X_M.Name = "X_M"
 X_M.Parent = Main
