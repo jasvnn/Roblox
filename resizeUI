@@ -55,7 +55,11 @@ UIStroke.Color = Color3.fromRGB(74, 168, 255)
 local grad = Instance.new("UIGradient")
 grad.Parent = UIStroke
 grad.Rotation = -10
-grad.Transparency = NumberSequence.new(0,1)
+
+local seq1 = NumberSequenceKeypoint.new(0,1)
+local seq2 = NumberSequenceKeypoint.new(0.52,0)
+
+grad.Transparency = NumberSequence.new({seq1,seq2})
 
 BorderC.Name = "BorderC"
 BorderC.Parent = Main
@@ -72,7 +76,11 @@ UIStroke_2.Parent = BorderC
 local grad_2 = Instance.new("UIGradient")
 grad_2.Parent = UIStroke_2
 grad_2.Rotation = -10
-grad_2.Transparency = NumberSequence.new(0,1)
+
+local seq11 = NumberSequenceKeypoint.new(0,0)
+local seq22 = NumberSequenceKeypoint.new(0.48,1)
+
+grad_2.Transparency = NumberSequence.new({seq11,seq22})
 
 X_M.Name = "X_M"
 X_M.Parent = Main
