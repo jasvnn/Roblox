@@ -58,8 +58,9 @@ grad.Rotation = -10
 
 local seq1 = NumberSequenceKeypoint.new(0,1)
 local seq2 = NumberSequenceKeypoint.new(0.52,0)
+local seq3 = NumberSequenceKeypoint.new(1,0)
 
-grad.Transparency = NumberSequence.new({seq1,seq2})
+grad.Transparency = NumberSequence.new({seq1,seq2,seq3})
 
 BorderC.Name = "BorderC"
 BorderC.Parent = Main
@@ -79,8 +80,9 @@ grad_2.Rotation = -10
 
 local seq11 = NumberSequenceKeypoint.new(0,0)
 local seq22 = NumberSequenceKeypoint.new(0.48,1)
+local seq33 = NumberSequenceKeypoint.new(1,1)
 
-grad_2.Transparency = NumberSequence.new({seq11,seq22})
+grad_2.Transparency = NumberSequence.new({seq11,seq22,seq33})
 
 X_M.Name = "X_M"
 X_M.Parent = Main
