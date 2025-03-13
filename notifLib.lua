@@ -39,14 +39,13 @@ end
 return function(TitleText,DescriptionText,Time)
     local NotificationPosition;
 
-    local notificationCount = #NotificationList
-    print("old count", notificationCount, "new location", notificationCount+1)
-    NotificationList[notificationCount+1] = notificationCount+1 
+    local notificationPos = #NotificationList + 1
+    NotificationList[notificationPos] = true
 
     if #NotificationList == 0 then
         NotificationPosition = Vector2.new((Camera.ViewportSize.X), (Camera.ViewportSize.Y) - (100))
     else
-        NotificationPosition = Vector2.new((Camera.ViewportSize.X), (Camera.ViewportSize.Y) - (100) - #NotificationList * 27)
+        NotificationPosition = Vector2.new((Camera.ViewportSize.X), (Camera.ViewportSize.Y) - (100) - notificationPos * 27)
     end
 
     local Box = Drawing.new("Square")
@@ -100,11 +99,6 @@ return function(TitleText,DescriptionText,Time)
         Outline:Remove()
         Description:Remove()
 
-        table.remove(NotificationList, notificationCount+1)
-        print("testing -> old count", notificationCount, "new count", #NotificationList)
-
-        for i,v in pairs(NotificationList) do
-            print("table ->", i,v)
-        end
+        NotificationList[notificationPos] = nil
     end)
 end
