@@ -101,6 +101,6 @@ return function(TitleText,DescriptionText,Time)
         Description:Remove()
 
         table.remove(NotificationList, notificationCount+1)
-        print("testing -> old count", notificationCount, "new location", notificationCount+1)
+        print("testing -> old count", notificationCount, "new count", #NotificationList)
     end)
 end
