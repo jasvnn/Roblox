@@ -40,7 +40,7 @@ return function(TitleText,DescriptionText,Time)
     local NotificationPosition;
 
     local notificationCount = #NotificationList
-
+    print("old count", notificationCount, "new location", notificationCount+1)
     NotificationList[notificationCount+1] = notificationCount+1 
 
     if #NotificationList == 0 then
@@ -101,7 +101,6 @@ return function(TitleText,DescriptionText,Time)
         Description:Remove()
 
         table.remove(NotificationList, notificationCount+1)
-
         table.sort(NotificationList, function(a,b)
             return a < b
         end)
