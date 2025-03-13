@@ -102,5 +102,9 @@ return function(TitleText,DescriptionText,Time)
 
         table.remove(NotificationList, notificationCount+1)
         print("testing -> old count", notificationCount, "new count", #NotificationList)
+
+        for i,v in pairs(NotificationList) do
+            print("table ->", i,v)
+        end
     end)
 end
